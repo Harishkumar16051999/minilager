@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function InsuranceTabContent() {
     const [activePlan,SetactivePlan]=useState('');
     const [changePlan,SetChangePlan]=useState(false);
-    const [ownInsurance,SetownInsurance]=useState(false)
+    const [ownInsurance,SetownInsurance]=useState(true)
     const SavePlan=(e)=>{
         e.preventDefault();
         SetChangePlan(false)
@@ -21,7 +21,7 @@ export default function InsuranceTabContent() {
                   { plane: 'I HAVE A', amount: 'OWN INSURANCE' }
               ].map(({ plane, amount, monthpay, planStatus }) => (
                
-                  <div className='col-lg-3 col-md-6 col-sm-12 px-4 mb-1'>
+                  <div key={``} className='col-lg-3 col-md-6 col-sm-12 px-4 mb-1'>
                       <div className={`card changePlanCard cursor-pointer  border-radius-10 text-center p-2 ${activePlan === plane && 'active'}`} onClick={() => SetactivePlan(plane)}>
                           <p className=' fs-7 fw-500 pb-1 mt-2'>{plane}</p>
                           <h4 className={` fs-4 fw-500 pb-2 ${activePlan === plane ? 'text-white' : 'text-success-dark'}`}>{amount}</h4>
